@@ -61,7 +61,7 @@ class MainHandle(object):
         if os_sleep == 'random':
             sleep_time = random.randint(30, 360)
         else:
-            sleep_time = int((float)os_sleep)
+            sleep_time = int(os_sleep)
         print('休眠 {}s'.format(sleep_time))
         for i in range(sleep_time, 0, -10):
             print("休眠剩余%s秒" % i)
