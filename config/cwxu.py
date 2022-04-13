@@ -2,35 +2,23 @@
 from config import _Report
 
 
-class ExampleHealthReport(_Report):
+class CWXUHealthReport(_Report):
     """
-    此为示例报表，请勿直接使用
-    以下的变量都需要适配修改，可能需要根据实际情况增加或只需要部分变量，
-    请前往 https://hbte.ch/1968.html 查看如何适配，并自行修改
-    修改后可在 GitHub 上提 Pull Request
+    CWXU 健康打卡
     """
     def __init__(self, username, password, school_id=''):
         _Report.__init__(self, username, password, school_id)
-        '''↓↓↓↓↓↓↓↓↓↓修改此处的form id、enc以及打卡名称↓↓↓↓↓↓↓↓↓↓↓'''
-        self._form_id = ''
-        self._enc = ''
-        self._reporter_name = '健康打卡示例'
-        '''↑↑↑↑↑↑↑↑↑↑修改此处的form id、enc以及打卡名称↑↑↑↑↑↑↑↑↑↑↑'''
+        self._form_id = '3449'
+        self._enc = '627c625902a1fd27de56172186a3f903'
+        self._reporter_name = 'CWXU健康打卡'
 
-        '''↓↓↓↓↓↓↓↓↓↓粘贴修改以下内容↓↓↓↓↓↓↓↓↓↓↓'''
-        # 对应打卡当天日期的id，格式 yyyy-MM-dd
         self._day_id = -1
-        # 对应打卡时的时间的id，格式 yyyy-MM-dd HH:mm
         self._report_time_id = -1
-        # 对应打卡时的温度的id，范围 36.3-36.7
-        self._temperature_ids = []
-        # 对应打卡时需要下拉选择的id
-        self._options_ids = []
-        # 内部使用的id
-        self._hasAuthority_ids = []
-        # 内部使用的id
+        # 该表单有多个体温
+        self._temperature_ids = [1, 16]
+        self._options_ids = [13, 3, 7, 5, 11, 6, 8, 12]
+        self._hasAuthority_ids = [14, 15]
         self._isShow_ids = []
-        '''↑↑↑↑↑↑↑↑↑↑粘贴修改以上内容↑↑↑↑↑↑↑↑↑↑↑'''
 
     def _clean_form_data(self):
         form_data = self._last_form_data
