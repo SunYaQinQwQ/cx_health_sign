@@ -1,6 +1,8 @@
 name: Health Report
 
 on:
+  schedule:
+    - cron: "13 1,7 * * *"
   workflow_dispatch:
 
 jobs:
