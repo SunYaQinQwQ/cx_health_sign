@@ -20,7 +20,13 @@ from config.xnec import XNECHealthReport
 from config.qcuwh import QCUWHHealthReport
 from config.hebart import HEBARTHealthReport
 from config.cwxu import CWXUHealthReport
+from config.qvtu import QVTUHealthReport
+from config.hebau import HEBAUHealthReport
 from config.test import TestReport
+from config.tust import TUSTHealthReport
+from config.xnec_2 import XNECHealthReport2
+from config.wut import WUTHealthReport
+from config.whsw import WHSWHealthReport
 
 
 class MainHandle(object):
@@ -44,6 +50,12 @@ class MainHandle(object):
             'qcuwh': QCUWHHealthReport,
             'hebart': HEBARTHealthReport,
             'cwxu': CWXUHealthReport,
+            'qvtu': QVTUHealthReport,
+            'hebau': HEBAUHealthReport,
+            'tust': TUSTHealthReport,
+            'xnec_2': XNECHealthReport2,
+            'wut': WUTHealthReport,
+            'whsw': WHSWHealthReport,
         }
 
         # 健康上报结果，多用户存储在一个数组
@@ -180,6 +192,9 @@ class MainHandle(object):
         send = SendMsg
         send_types = [send.api_types_name[i] + ' ' + send.api_types_url[i] for i in range(len(send.api_types_name))]
         api_type = self._input('请选择: ', is_require=False, message_list=send_types[1:])
+        while api_type in [2]:
+            print('***该接口已弃用，请选择其它接口！')
+            api_type = self._input('请选择: ', is_require=False, message_list=send_types[1:])
         api_type = 0 if api_type == '' else api_type + 1
 
         api_key = ''
@@ -203,6 +218,9 @@ class MainHandle(object):
         send = SendMsg
         send_types = [send.api_types_name[i] + ' ' + send.api_types_url[i] for i in range(len(send.api_types_name))]
         api_type = self._input('请选择: ', is_require=True, message_list=send_types[1:])
+        while api_type in [2]:
+            print('***该接口已弃用，请选择其它接口！')
+            api_type = self._input('请选择: ', is_require=False, message_list=send_types[1:])
         api_type = 0 if api_type == '' else api_type + 1
 
         print('输入消息推送 key')
@@ -257,7 +275,7 @@ class SendMsg(object):
         '未设置',
         'Server酱',
         '推送加',
-        '推送加(hxtrip域下)'
+        '(X)[该接口已停用] 推送加(hxtrip域下)'
     ]
 
     api_types_url = [
@@ -330,22 +348,10 @@ class SendMsg(object):
         else:
             return False
 
-    def push_plus_hxtrip(self) -> bool:
-        url = 'http://pushplus.hxtrip.com/send'
-        data = {
-            "token": self.api_key,
-            "title": self.title,
-            "content": self.desp.replace("\n\n", "<br>")
-        }
-        body = json.dumps(data).encode(encoding='utf-8')
-        headers = {'Content-Type': 'application/json',
-                   'accept': 'application/json'}
-        text = requests.post(url, data=body, headers=headers).text
-        result = json.loads(text)
-        if result['code'] == 200:
-            return True
-        else:
-            return False
+    @staticmethod
+    def push_plus_hxtrip() -> bool:
+        print('该消息推送接口已弃用，请更换其它接口')
+        return False
 
     def send_msg(self) -> bool:
         result_bool = self._send_api[self.api_type]()

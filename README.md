@@ -6,17 +6,13 @@
 
 最近更新日志：
 
-[2.3.0] - 2022-04-11
+[2.3.9] - 2022-08-10
 
-适配 南京信息工程大学滨江学院（无锡学院） 健康打卡
+适配 武汉生物工程学院 健康打卡
 
-适配 河北艺术职业学院 健康打卡
+适配 武昌理工学院 健康打卡
 
-新增自助适配健康填报表单功能
-
-支持单用户同时填报多个表单
-
-改善 GitHub Secrets 的配置方案
+适配 咸宁职业技术学院 健康打卡-2
 
 ......
 
@@ -46,9 +42,15 @@
 | swut_2 | 山东外国语职业技术大学 午检打卡 | [表单主页](https://office.chaoxing.com/front/web/apps/forms/fore/apply?id=175235&enc=fb50b811a71a357bbb3a87424f7c074c) |
 | hnisc | 湖南信息学院 健康打卡 | [表单主页](https://office.chaoxing.com/front/web/apps/forms/fore/apply?id=158324&enc=b08ae0de35d833ebc04ad7c5604f1b43) |
 | xnec | 咸宁职业技术学院 健康打卡 | [表单主页](https://office.chaoxing.com/front/web/apps/forms/fore/apply?id=100992&enc=bd1883314d3b5f4b36c91dc1907b5c74) |
+| xnec_2 | 咸宁职业技术学院 健康打卡-2 | [表单主页](https://office.chaoxing.com/front/web/apps/forms/fore/apply?id=100244&enc=c30d59556090a358fc0fb4992dd65cc1) |
 | qcuwh | 武汉晴川学院 健康打卡 | [表单主页](http://office.chaoxing.com/front/web/apps/forms/fore/apply?id=7185&enc=f837c93e0de9d9ad82db707b2c27241e) |
 | hebart | 河北艺术职业学院 健康打卡 | [表单主页](http://office.chaoxing.com/front/web/apps/forms/fore/apply?id=886&enc=c8f7d4f5599544933f7c222b6b44e5c4) |
 | cwxu | 南京信息工程大学滨江学院（无锡学院） 健康打卡 | [表单主页](http://office.chaoxing.com/front/web/apps/forms/fore/apply?id=3449&enc=627c625902a1fd27de56172186a3f903) |
+| qvtu | 泉州职业技术大学 健康打卡 | [表单主页](http://office.chaoxing.com/front/web/apps/forms/fore/apply?id=200487&enc=b69dd988598ff61b4366fdb1f1962114) |
+| hebau | 河北农业大学 健康上报 | [表单主页](http://office.chaoxing.com/front/web/apps/forms/fore/apply?id=204160&enc=a9b79f8b76307cd50a458b843d219ff2) |
+| tust | 天津科技大学 本科健康打卡 | [表单主页](http://office.chaoxing.com/front/web/apps/forms/fore/apply?id=14673&enc=ed9e03b2050df7f56003dc0c0fa226d2) |
+| wut | 武昌理工学院 本科健康打卡 | [表单主页](http://office.chaoxing.com/front/web/apps/forms/fore/apply?id=89398&enc=75244f75384287c902e57b080c4d1c6d) |
+| whsw | 武汉生物工程学院 健康打卡 | [表单主页](http://office.chaoxing.com/front/web/apps/forms/fore/apply?id=174267&enc=2ea539d84f23c7852a021ed77008df9f) |
 
 如果你的学校不在本项目支持列表之内，你可以：
 - 自己抓包学习通的表单链接得到 `form id` 和 `enc` ，然后即可自助适配，详细步骤见 [学习通健康打卡表单自适配指北](https://hbte.ch/1968.html) 。适配好并测试通过后，即可向本项目 `Pull Request` 。
@@ -167,7 +169,7 @@
     根据提示操作，设置后所有用户的填报结果都会推送到对应接口
 
 
-以上两步也可通过直接创建 `setting.yaml` 文件以保存配置，格式参考 `setting.bak.yal` 。
+以上两步也可通过直接创建 `setting.yaml` 文件以保存配置，格式参考 `setting.bak.yaml` 。
 
 4. 执行程序
     ```shell
@@ -209,7 +211,7 @@
 | :---: | :---: | :---: |
 | 1 | Server酱 | https://sct.ftqq.com/ |
 | 2 | 推送加 | https://www.pushplus.plus/ |
-| 3 | 推送加（hxtrip域名下） | https://pushplus.hxtrip.com/ |
+| 3 | ~~推送加（hxtrip域名下）~~ | ~~https://pushplus.hxtrip.com/~~ 该服务已下线 |
 
 请前往任意官网注册得到`key`后即可在本项目中使用，在 GitHub Actions 中使用时注意接口代号正确设置。
 
